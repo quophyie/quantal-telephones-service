@@ -35,7 +35,7 @@
             <AppenderRef ref="SpringBoot-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>
         </Logger>
-        <Logger name="com.quantal.quantalmicroservicetemplate" level="debug" additivity="false">
+        <Logger name="com.quantal.telephones" level="debug" additivity="false">
             <AppenderRef ref="App-File-Appender"/>
             <AppenderRef ref="Json-File-Appender"/>
             <AppenderRef ref="Console-Appender"/>

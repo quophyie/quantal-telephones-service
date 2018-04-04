@@ -1,8 +1,8 @@
 version: 2
 jobs:
-  build_quantaljavamicroservicetemplate:
+  build-quantal-telephones-service:
 
-    working_directory: ~/quantaljavamicroservicetemplate
+    working_directory: ~/quantal-telephones-service
 
     docker:
       - image: circleci/openjdk:8-jdk-browsers
@@ -16,7 +16,7 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: quantaljavamicroservicetemplate-{{ checksum "pom.xml" }}
+          key: quantal-telephones-service-{{ checksum "pom.xml" }}
 
       - run: mvn dependency:go-offline
 
@@ -26,7 +26,7 @@ jobs:
       - save_cache:
           paths:
             - ~/.m2
-          key: quantaljavamicroservicetemplate-{{ checksum "pom.xml" }}
+          key: quantal-telephones-service-{{ checksum "pom.xml" }}
 
       - run: mvn package
 
@@ -34,9 +34,9 @@ jobs:
           path: target/surefire-reports
 
       - store_artifacts:
-          path: target/quantaljavamicroservicetemplate-0.0.1-SNAPSHOT.jar
+          path: target/quantal-telephones-service-0.0.1-SNAPSHOT.jar
 workflows:
   version: 2
   build_project:
     jobs:
-      - build_quantaljavamicroservicetemplate
+      - build-quantal-telephones-service

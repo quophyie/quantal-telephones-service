@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.quantal</groupId>
-	<artifactId>quantalmicroservicetemplate</artifactId>
+	<artifactId>telephones</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>quantalmicroservicetemplate</name>
-	<description>Quantal Microservice</description>
+	<name>telephones</name>
+	<description>Quantal Telephones Microservice</description>
 	<parent>
 		<groupId>com.github.quophyie</groupId>
 		<artifactId>microservicebasepom</artifactId>

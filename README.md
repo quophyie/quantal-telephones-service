@@ -8,7 +8,7 @@ To use the template, simply clone this repository and update the following
 
 In your POM, update the **`artifactId`** and **`name`** to values of your choice
 
-Refactor the base package name (i.e. **`com.quantal.quantalmicroservicetemplate`**) to a name of your choice
+Refactor the base package name (i.e. **`com.quantal.telephones`**) to a name of your choice
  
 ## Environment Variables
  Somee default environment variables 
@@ -32,7 +32,7 @@ Refactor the base package name (i.e. **`com.quantal.quantalmicroservicetemplate`
 
  - Change the base package in the annotation **`@EnableJpaRepositories`** to your desired package
  - Change the base package in the annotation **`@EntityScan`** to your desired package
- - Change the base package in the method call to  **`factory.setPackagesToScan("com.quantal.quantalmicroservicetemplate.models")`** to your desired package
+ - Change the base package in the method call to  **`factory.setPackagesToScan("com.quantal.telephones.models")`** to your desired package
  
 ## SharedConfig.java (/src/main/java/com/quantal/quantalmicroservicetemplate/config/jpa/) 
 

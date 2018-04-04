@@ -1,29 +1,29 @@
 version: '3'
 services:
-  quantalmicroservicetemplate:
+  quantal-telephones-service:
     build:
       context: ./../../
       dockerfile: ./docker/Dockerfile
     ports:
       - "8080:8080"
     environment:
-      - DB_HOST=postgres_quantalmicroservicetemplate
+      - DB_HOST=postgres-quantal-telephones-service
       - DB_PORT=5432
-    command: ["/wait-for-it.sh", "postgres_quantalmicroservicetemplate:5432", "--", "java",  "-jar", "~/quantalmicroservicetemplate-0.0.1-SNAPSHOT.jar"]
+    command: ["/wait-for-it.sh", "postgres-quantal-telephones-service:5432", "--", "java",  "-jar", "~/telephones-0.0.1-SNAPSHOT.jar"]
     volumes:
-      - /private/var/docker/log/quantalmicroservicetemplate:/var/log
+      - /private/var/docker/log/telephones:/var/log
 
   # The postgres database
-  postgres_quantalmicroservicetemplate:
+  postgres-quantal-telephones-service:
     restart: always
     image: sameersbn/postgresql:9.6-2
     ports:
-      - "5434:5432"
+      - "5439:5432"
     environment:
       - DEBUG=false
       - DB_USER=postgres
       - DB_PASS=postgres
-      - DB_NAME=postgres
+      - DB_NAME=quantal_telephones_db
       - PG_PASSWORD=postgres
       - DB_TEMPLATE=
 
