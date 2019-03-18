@@ -1,14 +1,19 @@
 version: '3'
+networks:
+  default:
+    external:
+      name: compose_container_services_networks
 services:
   quantal-telephones-service:
     build:
       context: ./../../
       dockerfile: ./docker/Dockerfile
     ports:
-      - "8080:8080"
+      - ${WEB_APP_PORT:-7001}:8080
     environment:
       - DB_HOST=postgres-quantal-telephones-service
       - DB_PORT=5432
+      - LOGZIO_TOKEN=${LOGZIO_TOKEN}
     command: ["/wait-for-it.sh", "postgres-quantal-telephones-service:5432", "--", "java",  "-jar", "~/telephones-0.0.1-SNAPSHOT.jar"]
     volumes:
       - /private/var/docker/log/telephones:/var/log
@@ -18,7 +23,8 @@ services:
     restart: always
     image: sameersbn/postgresql:9.6-2
     ports:
-      - "5439:5432"
+      #- "5439:5432"
+      - ${DB_PORT_EXPOSED_ON_HOST:-5439}:5432
     environment:
       - DEBUG=false
       - DB_USER=postgres
