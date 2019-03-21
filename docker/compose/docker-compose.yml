@@ -14,7 +14,7 @@ services:
       - DB_HOST=postgres-quantal-telephones-service
       - DB_PORT=5432
       - LOGZIO_TOKEN=${LOGZIO_TOKEN}
-    command: ["/wait-for-it.sh", "postgres-quantal-telephones-service:5432", "--", "java",  "-jar", "~/telephones-0.0.1-SNAPSHOT.jar"]
+    command: ["/wait-for-it.sh", "-t", "30", "postgres-quantal-telephones-service:5432", "--", "java",  "-jar", "~/telephones-0.0.1-SNAPSHOT.jar"]
     volumes:
       - /private/var/docker/log/telephones:/var/log
 
